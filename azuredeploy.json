@@ -203,27 +203,6 @@
 				"description": "SSH public key for all VMs"
 			}
 		},
-		"keyVaultResourceGroup": {
-			"type": "string",
-			"minLength": 1,
-			"metadata": {
-				"description": "Resource Group that contains the Key Vault"
-			}
-		},
-		"keyVaultName": {
-			"type": "string",
-			"minLength": 1,
-			"metadata": {
-				"description": "Name of the Key Vault"
-			}
-		},
-		"keyVaultSecret": {
-			"type": "string",
-			"minLength": 1,
-			"metadata": {
-				"description": "Key Vault Secret Name that contains the Private Key"
-			}
-		},
 		"enableAzure": {
 			"type": "string",
 			"defaultValue": "false",
@@ -1757,12 +1736,7 @@
 						"value": "[parameters('rhsmPoolId')]"
 					},
 					"sshPrivateKey": {
-						"reference": {
-							"keyvault": {
-								"id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('keyVaultResourceGroup'), '/providers/Microsoft.KeyVault/vaults/', parameters('keyVaultName'))]"
-							},
-							"secretName": "[parameters('keyVaultSecret')]"
-						}
+                                                "value": "[parameters('sshPrivateData')]"
 					},
 					"redHatTags": {
 						"value": "[variables('redHatTags')]"
