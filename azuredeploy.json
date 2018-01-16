@@ -203,6 +203,12 @@
 				"description": "SSH public key for all VMs"
 			}
 		},
+		"sshPrivateData": {
+			"type": "string",
+			"metadata": {
+				"description": "SSH private key for the bastion VM"
+			}
+		},
 		"enableAzure": {
 			"type": "string",
 			"defaultValue": "false",
